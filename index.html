@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Carne Latente — cortes honestos, fuego lento y sobremesa larga.">
+  <title>Carne Latente — Casa de fuego</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,500;9..40,700&family=Playfair+Display:ital,wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --ink:#201b16; --cream:#f5f0e6; --red:#bd392c; --orange:#e8a437; --line:rgba(32,27,22,.2); }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); background:var(--cream); font-family:"DM Sans",sans-serif; }
+    .hero { min-height:760px; padding:25px 5vw 42px; position:relative; overflow:hidden; background:#d87d35; }
+    .hero::before { content:""; position:absolute; inset:0; opacity:.55; background:radial-gradient(circle at 73% 39%, #f9d46d 0 2%, transparent 2.5%), radial-gradient(ellipse at 70% 45%, #9c2c27 0 15%, transparent 15.5%), radial-gradient(ellipse at 68% 48%, #5f261c 0 25%, transparent 25.5%), linear-gradient(117deg, transparent 48%, rgba(34,19,13,.75) 49% 57%, transparent 58%), repeating-linear-gradient(15deg, rgba(96,35,25,.15) 0 1px, transparent 1px 7px); transform:scale(1.2); }
+    .hero > * { position:relative; z-index:1; }
+    nav { display:flex; align-items:center; justify-content:space-between; font-family:"DM Mono",monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase; }
+    .brand { font-size:15px; font-weight:500; text-decoration:none; color:var(--ink); }
+    nav ul { display:flex; gap:28px; list-style:none; margin:0; padding:0; }
+    a { color:inherit; }
+    nav a:not(.brand) { text-decoration:none; border-bottom:1px solid transparent; padding-bottom:3px; }
+    nav a:not(.brand):hover { border-color:currentColor; }
+    .hero-copy { max-width:785px; padding:126px 0 76px; }
+    .eyebrow, .kicker { display:flex; align-items:center; gap:11px; font:12px "DM Mono",monospace; letter-spacing:.08em; text-transform:uppercase; }
+    .eyebrow::before, .kicker::before { content:""; height:1px; width:42px; background:currentColor; }
+    h1 { font:800 clamp(65px,10.1vw,154px)/.83 "Playfair Display",serif; letter-spacing:-.07em; text-transform:uppercase; margin:25px 0 29px; max-width:760px; }
+    .hero-copy p { max-width:390px; margin:0; font-size:17px; line-height:1.45; }
+    .roundel { position:absolute; right:5vw; bottom:43px; width:136px; height:136px; border:1px solid var(--ink); border-radius:50%; display:grid; place-items:center; text-align:center; font:11px/1.35 "DM Mono",monospace; letter-spacing:.06em; text-transform:uppercase; transform:rotate(10deg); }
+    .roundel b { font:700 43px/1 "Playfair Display",serif; display:block; letter-spacing:-.08em; }
+    main { padding:0 5vw; }
+    .intro { display:grid; grid-template-columns:1fr 1.15fr; gap:8vw; padding:112px 0 106px; border-bottom:1px solid var(--line); }
+    .intro h2 { margin:17px 0 0; font:700 clamp(38px,4.5vw,66px)/.99 "Playfair Display",serif; letter-spacing:-.05em; }
+    .intro p { margin:39px 0 0; max-width:520px; font-size:20px; line-height:1.4; }
+    .menu { padding:102px 0; }
+    .section-head { display:flex; justify-content:space-between; align-items:end; margin-bottom:39px; }
+    h2 { margin:0; font:700 clamp(37px,4vw,57px)/.95 "Playfair Display",serif; letter-spacing:-.05em; }
+    .section-head a, .booking a { font:12px "DM Mono",monospace; text-transform:uppercase; letter-spacing:.06em; text-underline-offset:5px; }
+    .plates { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .plate { padding:26px 23px 23px; min-height:292px; display:flex; flex-direction:column; justify-content:flex-end; color:#fdf8ec; background:#2d2822; }
+    .plate:nth-child(2) { background:#a9372c; }
+    .plate:nth-child(3) { color:var(--ink); background:var(--orange); }
+    .plate span { font:12px "DM Mono",monospace; text-transform:uppercase; letter-spacing:.08em; }
+    .plate h3 { font:700 37px/.95 "Playfair Display",serif; letter-spacing:-.05em; margin:11px 0; }
+    .plate p { margin:0; max-width:255px; font-size:15px; line-height:1.35; }
+    .booking { background:var(--ink); color:var(--cream); margin:0 -5vw; padding:93px 5vw; display:grid; grid-template-columns:1fr auto; align-items:end; gap:25px; }
+    .booking h2 { max-width:690px; font-size:clamp(45px,6.8vw,95px); }
+    .booking .kicker { color:#e6a93a; margin-bottom:20px; }
+    .booking a { display:inline-block; padding:16px 19px; border:1px solid var(--cream); text-decoration:none; }
+    footer { display:flex; justify-content:space-between; gap:20px; padding:25px 5vw; font:11px "DM Mono",monospace; letter-spacing:.05em; text-transform:uppercase; }
+    @media (max-width:650px) { .hero { min-height:690px; } nav ul { gap:14px; } nav li:nth-child(2) { display:none; } .hero-copy { padding-top:115px; } .hero::before { transform:scale(1.8) translate(10%,5%); } .roundel { width:104px; height:104px; right:24px; bottom:27px; } .roundel b { font-size:33px; } .intro, .booking { grid-template-columns:1fr; gap:20px; } .intro { padding:74px 0; } .intro p { margin-top:25px; font-size:18px; } .menu { padding:72px 0; } .plates { grid-template-columns:1fr; } .plate { min-height:225px; } .booking { padding-top:69px; padding-bottom:69px; } footer { flex-direction:column; } }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <nav aria-label="Navegación principal">
+      <a class="brand" href="#inicio">Carne Latente</a>
+      <ul><li><a href="#carta">La carta</a></li><li><a href="#casa">La casa</a></li><li><a href="#reserva">Reservas</a></li></ul>
+    </nav>
+    <div class="hero-copy" id="inicio">
+      <div class="eyebrow">Casa de fuego · Buenos Aires</div>
+      <h1>El tiempo<br>hace lo suyo.</h1>
+      <p>Cortes elegidos, brasas pacientes y una mesa que no mira el reloj.</p>
+    </div>
+    <div class="roundel">Desde<br><b>2018</b><br>fuego lento</div>
+  </header>
+  <main>
+    <section class="intro" id="casa">
+      <div><div class="kicker">Nuestra forma</div><h2>Menos prisa.<br>Más sabor.</h2></div>
+      <p>Trabajamos con productores cercanos y dejamos que cada pieza encuentre su punto. La cocina empieza antes del fuego: en el origen, en el corte, en la espera.</p>
+    </section>
+    <section class="menu" id="carta">
+      <div class="section-head"><div><div class="kicker">De la brasa</div><h2>Lo que está pasando.</h2></div><a href="#reserva">Ver carta completa ↗</a></div>
+      <div class="plates">
+        <article class="plate"><span>Para empezar</span><h3>Mollejas</h3><p>Limón quemado, hierbas y pan de masa madre.</p></article>
+        <article class="plate"><span>Al centro</span><h3>Asado de tira</h3><p>36 horas de salmuera seca. Brasa de quebracho.</p></article>
+        <article class="plate"><span>Para terminar</span><h3>Flan de queso</h3><p>Dulce de leche ahumado y sal marina.</p></article>
+      </div>
+    </section>
+  </main>
+  <section class="booking" id="reserva">
+    <div><div class="kicker">Tu mesa espera</div><h2>Reservá tiempo para comer bien.</h2></div>
+    <a href="mailto:hola@carnelatente.com?subject=Reserva">Reservar una mesa ↗</a>
+  </section>
+  <footer><span>Carne Latente © 2026</span><span>Thames 1428 · Palermo</span><span>Miércoles a domingo · 19—01 h</span></footer>
+</body>
+</html>
