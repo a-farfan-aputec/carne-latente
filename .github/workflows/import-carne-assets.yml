@@ -1,0 +1,64 @@
+name: Import Carne Latente assets
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/import-carne-assets.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download story images
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p assets/img
+          base="https://carnelatente.gallitonegro.com/wp-content/uploads/2025/07"
+
+          curl -fL "$base/img-h-1.png" -o assets/img/01-sondra.png
+          curl -fL "$base/img-h-11.png" -o assets/img/02-jennifer.png
+          curl -fL "$base/img-h-9-1024x601.png" -o assets/img/03-karla.png
+          curl -fL "$base/img-h-2-1024x601.png" -o assets/img/04-misha.png
+          curl -fL "$base/img-h-10-1024x601.png" -o assets/img/05-anika.png
+          curl -fL "$base/img-h-6-1024x601.png" -o assets/img/06-betty.png
+          curl -fL "$base/img-h-3-1024x601.png" -o assets/img/07-zuleika.png
+          curl -fL "$base/img-h-4-1024x601.png" -o assets/img/08-mary-pily.png
+          curl -fL "$base/img-h-7-1024x601.png" -o assets/img/09-ana.png
+          curl -fL "$base/img-h-8-1024x601.png" -o assets/img/10-patty.png
+          curl -fL "$base/img-h-5-1024x601.png" -o assets/img/11-barbara.png
+          curl -fL "$base/img-h-12-1024x601.png" -o assets/img/12-natalia.png
+
+      - name: Use local assets in canal.html
+        shell: bash
+        run: |
+          set -euo pipefail
+          sed -i "s#assets/img/01-sondra.webp#assets/img/01-sondra.png#g" canal.html
+          sed -i "s#assets/img/02-jennifer.webp#assets/img/02-jennifer.png#g" canal.html
+          sed -i "s#assets/img/03-karla.webp#assets/img/03-karla.png#g" canal.html
+          sed -i "s#assets/img/04-misha.webp#assets/img/04-misha.png#g" canal.html
+          sed -i "s#assets/img/05-anika.webp#assets/img/05-anika.png#g" canal.html
+          sed -i "s#assets/img/06-betty.webp#assets/img/06-betty.png#g" canal.html
+          sed -i "s#assets/img/07-zuleika.webp#assets/img/07-zuleika.png#g" canal.html
+          sed -i "s#assets/img/08-mary-pily.webp#assets/img/08-mary-pily.png#g" canal.html
+          sed -i "s#assets/img/09-ana.webp#assets/img/09-ana.png#g" canal.html
+          sed -i "s#assets/img/10-patty.webp#assets/img/10-patty.png#g" canal.html
+          sed -i "s#assets/img/11-barbara.webp#assets/img/11-barbara.png#g" canal.html
+          sed -i "s#assets/img/03-karla.webp#assets/img/12-natalia.png#g" canal.html
+
+      - name: Commit assets
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add canal.html assets/img
+          git diff --cached --quiet && exit 0
+          git commit -m "Add Carne Latente Camal assets"
+          git push
