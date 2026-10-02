@@ -51,7 +51,7 @@ jobs:
           sed -i "s#assets/img/09-ana.webp#assets/img/09-ana.png#g" canal.html
           sed -i "s#assets/img/10-patty.webp#assets/img/10-patty.png#g" canal.html
           sed -i "s#assets/img/11-barbara.webp#assets/img/11-barbara.png#g" canal.html
-          sed -i "s#assets/img/03-karla.webp#assets/img/12-natalia.png#g" canal.html
+          sed -i "s#assets/img/12-natalia.webp#assets/img/12-natalia.png#g" canal.html
 
       - name: Commit assets
         shell: bash
