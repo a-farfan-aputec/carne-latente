@@ -1,1 +1,904 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Camal — Carne Latente</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"><style>*{box-sizing:border-box}body{margin:0;background:#080808;color:#fff;font-family:Inter,sans-serif}.topbar{position:fixed;z-index:10;inset:0 0 auto;height:76px;display:flex;justify-content:space-between;align-items:center;padding:0 3vw;background:linear-gradient(#000d,transparent)}.brand{color:#fff;text-decoration:none;font:600 27px/1 Cormorant Garamond,serif}.brand small{display:block;color:#aaa;font:9px Inter,sans-serif;letter-spacing:.28em;margin-top:7px}.nav{display:flex;gap:2vw}.nav a{color:#aaa;text-decoration:none;font:10px Inter,sans-serif;text-transform:uppercase;letter-spacing:.14em}.nav .active{color:#fff;border-bottom:1px solid #d51a25;padding-bottom:6px}.hero{min-height:100vh;display:flex;align-items:end;padding:0 0 18vh;position:relative;background:linear-gradient(90deg,#000d,#0003),linear-gradient(#0002,#080808 92%),url(assets/img/01-sondra.webp) center/cover}.hero>*{position:relative;z-index:1}.hero .inner{width:100%}.eyebrow{color:#d51a25;font:11px Inter,sans-serif;letter-spacing:.3em;text-transform:uppercase}.hero h1{margin:12px 0 0;font:500 clamp(80px,14vw,190px)/.72 Cormorant Garamond,serif}.copy{max-width:510px;color:#bbb;font:13px/1.8 Inter,sans-serif;margin-top:30px}.stories{position:relative;z-index:5;margin-top:-25vh;padding-bottom:120px}.row{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}.card{height:520px;position:relative;overflow:hidden;text-decoration:none;display:block;transition:.2s;transform:perspective(900px)}.bg{position:absolute;inset:-5%;background:center/cover;filter:saturate(.72) contrast(1.08);transition:.5s}.card:hover .bg{transform:scale(1.06)}.card:after{content:"";position:absolute;inset:0;background:linear-gradient(#0001,#000e)}.card:before{content:"";position:absolute;inset:0;border:1px solid #fff2;z-index:2}.card:hover:before{border-color:#d51a25}.content{position:absolute;z-index:3;left:28px;right:28px;bottom:28px}.idx{font:9px Inter,sans-serif;letter-spacing:.22em}.name{display:block;color:#fff;font:600 58px/.82 Cormorant Garamond,serif}.excerpt{display:block;color:#ddd;font:11px/1.65 Inter,sans-serif;margin-top:18px}.link{display:block;color:#fff;font:9px Inter,sans-serif;letter-spacing:.2em;margin-top:20px}.modal{position:fixed;inset:0;background:#000b;display:none;align-items:center;justify-content:center;padding:25px;z-index:100}.modal.open{display:flex}.box{width:min(1100px,100%);max-height:90vh;overflow:auto;background:#0b0b0b;border:1px solid #d51a2555;padding:30px 34px}.mi{color:#d51a25;font:10px Inter,sans-serif;letter-spacing:.24em}.mt{font:600 clamp(48px,7vw,90px)/.8 Cormorant Garamond,serif;text-transform:uppercase;margin:8px 0}.txt{max-width:850px;color:#d2cdc6;font:24px/1.65 Cormorant Garamond,serif}.actions{display:flex;justify-content:space-between;margin-top:28px}.actions button,.close{border:0;background:none;color:#fff;font:10px Inter,sans-serif;letter-spacing:.18em;text-transform:uppercase}.close{float:right;font-size:20px}.foot{padding:60px 3vw;color:#777;border-top:1px solid #fff1}@media(max-width:992px){.nav{display:none}.row{grid-template-columns:1fr 1fr}.stories{margin-top:-17vh}}@media(max-width:600px){.row{grid-template-columns:1fr;gap:24px}.card{height:430px}.stories{margin-top:-12vh}.box{padding:22px}.txt{font-size:20px}.hero{padding-bottom:20vh}}</style></head><body><header class="topbar"><a class="brand" href="#">CARNE LATENTE<small>Mireliz</small></a><nav class="nav"><a href="#">Inicio</a> <a href="#">Territorio</a> <a class="active" href="#">Camal</a> <a href="#">Entrañas</a> <a href="#">Cuerpo</a> <a href="#">Mirada carnal</a> <a href="#">Desde el útero</a> <a href="#">Tour virtual</a></nav></header><main><section class="hero"><div class="inner"><div class="eyebrow">Archivo de voces</div><h1>Camal</h1><p class="copy">Doce historias que atraviesan el cuerpo, la mirada, el deseo, la presión y las formas en que una persona aprende a habitar su propio territorio.</p></div></section><section class="stories"><div class="row"><a class="card" href="#" data-i="0"><span class="bg" style="background-image:url(assets/img/01-sondra.webp)"></span><span class="content"><span class="idx">01 / 12</span><span class="name">SONDRA</span><span class="excerpt">Tenía 14 años, eran las 4 de la tarde de un día de verano, estaba en la Javier Prado, cerca a la clínica Ricardo Palma, a cinco cuadras de…</span><span class="link">LEER HISTORIA ↗</span></span></a><a class="card" href="#" data-i="1"><span class="bg" style="background-image:url(assets/img/02-jennifer.webp)"></span><span class="content"><span class="idx">02 / 12</span><span class="name">JENNIFER</span><span class="excerpt">Llegué con mi mamá, estoy en un cuarto, en una semana empiezo el instituto, el hijo de la señora de la casa me cae bien, dice que me va a…</span><span class="link">LEER HISTORIA ↗</span></span></a>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Camal — Archivo de voces de Carne Latente.">
+  <title>Camal — Carne Latente</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg:#050505;
+      --surface:#0b0b0b;
+      --text:#f2f0ed;
+      --muted:#aaa5a0;
+      --red:#d00000;
+      --serif:"Cormorant Garamond", Georgia, serif;
+      --sans:"Inter", Arial, sans-serif;
+    }
+
+    * { box-sizing:border-box; }
+
+    html { scroll-behavior:smooth; }
+
+    body {
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family:var(--sans);
+      font-weight:300;
+    }
+
+
+    /* HEADER */
+    .site-header {
+      position:fixed;
+      inset:0 0 auto;
+      z-index:1000;
+      min-height:74px;
+      border-bottom:1px solid rgba(255,255,255,.12);
+      background:rgba(0,0,0,.72);
+      backdrop-filter:blur(14px);
+    }
+
+    .brand {
+      color:#fff;
+      text-decoration:none;
+      font:500 28px/1 var(--serif);
+      white-space:nowrap;
+    }
+
+    .brand small {
+      display:block;
+      margin-top:6px;
+      text-align:right;
+      font:300 9px/1 var(--sans);
+      letter-spacing:.32em;
+    }
+
+    .site-nav {
+      display:flex;
+      gap:26px;
+      align-items:center;
+    }
+
+    .site-nav a {
+      color:var(--muted);
+      text-decoration:none;
+      font-size:9px;
+      letter-spacing:.14em;
+      white-space:nowrap;
+    }
+
+    .site-nav a.active { color:#fff; }
+
+    /* HERO */
+    .hero {
+      position:relative;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      overflow:visible;
+      padding:130px 0 25vh;
+      background:
+        radial-gradient(circle at 78% 40%,rgba(100,0,0,.34),transparent 34%),
+        linear-gradient(115deg,#050505,#160000 55%,#050505);
+    }
+
+    .hero::after {
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background:linear-gradient(90deg,#050505 5%,rgba(5,5,5,.65) 42%,transparent);
+    }
+
+    .hero-content {
+      position:relative;
+      z-index:1;
+    }
+
+    .kicker {
+      color:var(--muted);
+      font-size:10px;
+      letter-spacing:.25em;
+      text-transform:uppercase;
+    }
+
+    .kicker::before {
+      content:"";
+      display:inline-block;
+      width:28px;
+      height:1px;
+      margin:0 14px 3px 0;
+      background:var(--red);
+    }
+
+    .hero h1 {
+      margin:40px 0 35px;
+      font:500 clamp(92px,12vw,175px)/.72 var(--serif);
+      letter-spacing:-.05em;
+    }
+
+    .hero-copy {
+      max-width:520px;
+      margin:0;
+      color:#c4c0ba;
+      font-size:16px;
+      line-height:1.7;
+    }
+
+    .explore {
+      display:inline-flex;
+      gap:12px;
+      align-items:center;
+      margin-top:38px;
+      color:#fff;
+      text-decoration:none;
+      font-size:10px;
+      letter-spacing:.2em;
+    }
+
+    .explore span {
+      color:var(--red);
+      font-size:20px;
+    }
+
+    /* STORY GRID */
+    .stories {
+      position:relative;
+      z-index:5;
+      margin-top:-25vh;
+      padding-bottom:120px;
+      background:var(--bg);
+    }
+
+    .story-grid {
+      position:relative;
+      z-index:2;
+    }
+
+    .story-card {
+      position:relative;
+      display:block;
+      width:100%;
+      height:520px;
+      padding:0;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.16);
+      border-radius:0;
+      color:#fff;
+      text-align:left;
+      cursor:pointer;
+      background:#111;
+      transform:translateZ(0);
+      transform-style:preserve-3d;
+      transition:
+        transform .18s ease-out,
+        border-color .2s ease,
+        box-shadow .2s ease;
+    }
+
+    .story-card:hover {
+      border-color:var(--red);
+      box-shadow:0 30px 80px rgba(0,0,0,.62);
+    }
+
+    .card-bg {
+      position:absolute;
+      inset:-3%;
+      z-index:0;
+      display:block;
+      background-position:center;
+      background-size:cover;
+      background-repeat:no-repeat;
+      transform:scale(1.02);
+      transition:transform .3s ease, filter .3s ease;
+    }
+
+    .story-card:hover .card-bg {
+      filter:brightness(1.08);
+    }
+
+    .card-overlay {
+      position:absolute;
+      inset:0;
+      z-index:1;
+      display:block;
+      background:
+        linear-gradient(to top,rgba(0,0,0,.9),rgba(0,0,0,.05) 62%),
+        linear-gradient(135deg,rgba(0,0,0,.25),rgba(100,0,0,.08));
+    }
+
+    .card-info {
+      position:absolute;
+      right:24px;
+      bottom:24px;
+      left:24px;
+      z-index:2;
+      display:block;
+    }
+
+    .card-number {
+      display:block;
+      font:400 48px/.9 var(--serif);
+    }
+
+    .card-name {
+      display:block;
+      margin-top:7px;
+      font-size:10px;
+      letter-spacing:.2em;
+    }
+
+    .card-line {
+      display:block;
+      width:34px;
+      height:2px;
+      margin-top:13px;
+      background:var(--red);
+    }
+
+    .card-action {
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      margin-top:18px;
+      color:#fff;
+      font:400 9px/1 var(--sans);
+      letter-spacing:.18em;
+      opacity:.82;
+      transition:opacity .2s ease, color .2s ease;
+    }
+
+    .story-card:hover .card-action {
+      color:#fff;
+      opacity:1;
+    }
+
+    .card-action span {
+      color:var(--red);
+      font-size:13px;
+      letter-spacing:0;
+    }
+
+
+    /* FOOTER */
+    .site-footer {
+      position:relative;
+      z-index:2;
+      padding:60px 0;
+      border-top:1px solid #222;
+      background:#050505;
+    }
+
+    .footer-brand {
+      font:500 32px/1 var(--serif);
+    }
+
+    .footer-sub {
+      margin-top:8px;
+      text-align:right;
+      font-size:9px;
+      letter-spacing:.3em;
+    }
+
+    /* BOOTSTRAP MODAL */
+    .story-modal-content {
+      min-height: 620px;
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 8% 12%, rgba(120,0,0,.30), transparent 30%),
+        radial-gradient(circle at 92% 80%, rgba(70,0,0,.18), transparent 34%),
+        #080808;
+      box-shadow: 0 40px 120px rgba(0,0,0,.75);
+    }
+
+    .story-modal-content .modal-header {
+      padding: 28px 32px 0;
+    }
+
+    .story-modal-content .modal-body {
+      padding: 30px clamp(28px, 7vw, 100px) 20px;
+    }
+
+    .story-modal-content .modal-footer {
+      padding: 10px clamp(28px, 7vw, 100px) 35px;
+    }
+
+    .story-modal-meta,
+    .story-modal-index {
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: .2em;
+    }
+
+    .story-modal-title {
+      margin: 15px 0 35px;
+      font: 500 clamp(64px, 9vw, 125px)/.78 var(--serif);
+      letter-spacing: -.04em;
+    }
+
+    .story-modal-quote {
+      max-width: 800px;
+      margin-bottom: 30px;
+      font: 400 clamp(28px, 3.3vw, 44px)/1.05 var(--serif);
+    }
+
+    .story-modal-text {
+      max-width: 700px;
+      color: #c6c1bc;
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .story-modal-text p {
+      margin-bottom: 18px;
+    }
+
+    .story-modal-nav {
+      padding: 0;
+      border: 0;
+      color: #fff;
+      font-size: 9px;
+      letter-spacing: .16em;
+      background: transparent;
+    }
+
+    .story-modal-nav:hover,
+    .story-modal-nav:focus {
+      color: var(--red);
+      background: transparent;
+    }
+
+    .modal-backdrop.show {
+      opacity: .86;
+    }
+
+    @media (max-width: 991.98px) {
+      .site-nav { display:none; }
+      .stories { margin-top:-18vh; }
+    }
+
+    @media (max-width: 767.98px) {
+      .story-modal-content {
+        min-height: 100%;
+      }
+
+      .story-modal-content .modal-header {
+        padding: 22px 20px 0;
+      }
+
+      .story-modal-content .modal-body {
+        padding: 25px 22px 15px;
+      }
+
+      .story-modal-content .modal-footer {
+        padding: 10px 22px 28px;
+      }
+
+      .hero {
+        min-height:100svh;
+        padding-top:115px;
+        padding-bottom:16vh;
+      }
+
+      .hero h1 {
+        font-size:clamp(76px,25vw,125px);
+        margin-top:35px;
+      }
+
+      .hero-copy {
+        max-width:100%;
+        font-size:15px;
+      }
+
+      .stories {
+        margin-top:-10vh;
+        padding-bottom:80px;
+      }
+
+      .story-card {
+        height:460px;
+      }
+
+      .card-info {
+        right:20px;
+        bottom:20px;
+        left:20px;
+      }
+
+      .brand {
+        font-size:25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container-fluid px-4 px-lg-5 py-3 d-flex align-items-center justify-content-between">
+      <a class="brand" href="#" aria-label="Carne Latente — Inicio">
+        CARNE LATENTE
+        <small>Mireliz</small>
+      </a>
+
+      <nav class="site-nav" aria-label="Navegación principal">
+        <a href="#">INICIO</a>
+        <a href="#">TERRITORIO</a>
+        <a class="active" href="#historias" aria-current="page">CAMAL</a>
+        <a href="#">ENTRAÑAS</a>
+        <a href="#">CUERPO</a>
+        <a href="#">MIRADA CARNAL</a>
+        <a href="#">DESDE EL ÚTERO</a>
+        <a href="#">TOUR VIRTUAL</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <div class="container-xxl px-3 px-md-4 px-xl-5">
+        <div class="hero-content col-12 col-lg-7">
+          <p class="kicker">Voces reales</p>
+          <h1 id="page-title">CAMAL</h1>
+          <p class="hero-copy">
+            Doce voces. Doce realidades. Una misma herida.
+            Historias que no se cuentan, pero que siguen aquí.
+          </p>
+          <a class="explore" href="#historias">
+            EXPLORA LAS HISTORIAS <span aria-hidden="true">↓</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="stories py-0" id="historias" aria-labelledby="stories-title">
+      <div class="container-xxl px-3 px-md-4 px-xl-5">
+        <h2 id="stories-title" class="visually-hidden">Historias</h2>
+
+        <div class="row g-4 g-xl-5 story-grid">
+
+        <article class="col-12 col-md-6 col-lg-4">
+          <a
+            class="story-card d-block text-decoration-none"
+            href="#historia-01"
+            data-story="0"
+            aria-label="Leer la historia de SONDRA"
+          >
+            
+            <span
+              class="card-bg"
+              aria-hidden="true"
+              style="background-image: url('assets/img/01-sondra.webp');"
+            ></span>
+            <span class="card-overlay" aria-hidden="true"></span>
+            <span class="card-info">
+              <span class="card-number">01</span>
+              <span class="card-name">SONDRA</span>
+              <span class="card-action">LEER HISTORIA <span aria-hidden="true">↗</span></span>
+              <span class="card-line" aria-hidden="true"></span>
+            </span>
+          
+          </a>
+        </article>
+        <article class="col-12 col-md-6 col-lg-4">
+          <a
+            class="story-card d-block text-decoration-none"
+            href="#historia-02"
+            data-story="1"
+            aria-label="Leer la historia de JENNIFER"
+          >
+            
+            <span
+              class="card-bg"
+              aria-hidden="true"
+              style="background-image: url('assets/img/02-jennifer.webp');"
+            ></span>
+            <span class="card-overlay" aria-hidden="true"></span>
+            <span class="card-info">
+              <span class="card-number">02</span>
+              <span class="card-name">JENNIFER</span>
+              <span class="card-action">LEER HISTORIA <span aria-hidden="true">↗</span></span>
+              <span class="card-line" aria-hidden="true"></span>
+            </span>
+          
+          </a>
+        </article>
+        <article class="col-12 col-md-6 col-lg-4">
+          <a
+            class="story-card d-block text-decoration-none"
+            href="#historia-03"
+            data-story="2"
+            aria-label="Leer la historia de KARLA"
+          >
+            
+            <span
+              class="card-bg"
+              aria-hidden="true"
+              style="background-image: url('assets/img/03-karla.webp');"
+            ></span>
+            <span class="card-overlay" aria-hidden="true"></span>
+            <span class="card-info">
+              <span class="card-number">03</span>
+              <span class="card-name">KARLA</span>
+              <span class="card-action">LEER HISTORIA <span aria-hidden="true">↗</span></span>
+              <span class="card-line" aria-hidden="true"></span>
+            </span>
+          
+          </a>
+        </article>
+        <article class="col-12 col-md-6 col-lg-4">
+          <a
+            class="story-card d-block text-decoration-none"
+            href="#historia-04"
+            data-story="3"
+            aria-label="Leer la historia de MISHA"
+          >
+            
+            <span
+              class="card-bg"
+              aria-hidden="true"
+              style="background-image: url('assets/img/04-misha.webp');"
+            ></span>
+            <span class="card-overlay" aria-hidden="true"></span>
+            <span class="card-info">
+              <span class="card-number">04</span>
+              <span class="card-name">MISHA</span>
+              <span class="card-action">LEER HISTORIA <span aria-hidden="true">↗</span></span>
+              <span class="card-line" aria-hidden="true"></span>
+            </span>
+          
+          </a>
+        </article>
+        <article class="col-12 col-md-6 col-lg-4">
+          <a
+            class="story-card d-block text-decoration-none"
+            href="#historia-05"
+            data-story="4"
+            aria-label="Leer la historia de ANIKA"
+          >
+            
+            <span
+              class="card-bg"
+              aria-hidden="true"
+              style="background-image: url('assets/img/05-anika.webp');"
+            ></span>
+            <span class="card-overlay" aria-hidden="true"></span>
+            <span class="card-info">
+              <span class="card-number">05</span>
+              <span class="card-name">ANIKA</span>
+              <span class="card-action">LEER HISTORIA <span aria-hidden="true">↗</span></span>
+              <span class="card-line" aria-hidden="true"></span>
+            </span>
+          
+          </a>
+        </article>
+        <article class="col-12 col-md-6 col-lg-4">
+          <a
+            class="story-card d-block text-decoration-none"
+            href="#historia-06"
+            data-story="5"
+            aria-label="Leer la historia de BETTY"
+          >
+            
+            <span
+              class="card-bg"
+              aria-hidden="true"
+              style="background-image: url('assets/img/06-betty.webp');"
+            ></span>
+            <span class="card-overlay" aria-hidden="true"></span>
+            <span class="card-info">
+              <span class="card-number">06</span>
+              <span class="card-name">BETTY</span>
+              <span class="card-action">LEER HISTORIA <span aria-hidden="true">↗</span></span>
+              <span class="card-line" aria-hidden="true"></span>
+            </span>
+          
+          </a>
+        </article>
+        <article class="col-12 col-md-6 col-lg-4">
+          <a
+            class="story-card d-block text-decoration-none"
+            href="#historia-07"
+            data-story="6"
+            aria-label="Leer la historia de ZULEIKA"
+          >
+            
+            <span
+              class="card-bg"
+              aria-hidden="true"
+              style="background-image: url('assets/img/07-zuleika.webp');"
+            ></span>
+            <span class="card-overlay" aria-hidden="true"></span>
+            <span class="card-info">
+              <span class="card-number">07</span>
+              <span class="card-name">ZULEIKA</span>
+              <span class="card-action">LEER HISTORIA <span aria-hidden="true">↗</span></span>
+              <span class="card-line" aria-hidden="true"></span>
+            </span>
+          
+          </a>
+        </article>
+        <article class="col-12 col-md-6 col-lg-4">
+          <a
+            class="story-card d-block text-decoration-none"
+            href="#historia-08"
+            data-story="7"
+            aria-label="Leer la historia de MARY PILY"
+          >
+            
+            <span
+              class="card-bg"
+              aria-hidden="true"
+              style="background-image: url('assets/img/08-mary-pily.webp');"
+            ></span>
+            <span class="card-overlay" aria-hidden="true"></span>
+            <span class="card-info">
+              <span class="card-number">08</span>
+              <span class="card-name">MARY PILY</span>
+              <span class="card-action">LEER HISTORIA <span aria-hidden="true">↗</span></span>
+              <span class="card-line" aria-hidden="true"></span>
+            </span>
+          
+          </a>
+        </article>
+        <article class="col-12 col-md-6 col-lg-4">
+          <a
+            class="story-card d-block text-decoration-none"
+            href="#historia-09"
+            data-story="8"
+            aria-label="Leer la historia de ANA"
+          >
+            
+            <span
+              class="card-bg"
+              aria-hidden="true"
+              style="background-image: url('assets/img/09-ana.webp');"
+            ></span>
+            <span class="card-overlay" aria-hidden="true"></span>
+            <span class="card-info">
+              <span class="card-number">09</span>
+              <span class="card-name">ANA</span>
+              <span class="card-action">LEER HISTORIA <span aria-hidden="true">↗</span></span>
+              <span class="card-line" aria-hidden="true"></span>
+            </span>
+          
+          </a>
+        </article>
+        <article class="col-12 col-md-6 col-lg-4">
+          <a
+            class="story-card d-block text-decoration-none"
+            href="#historia-10"
+            data-story="9"
+            aria-label="Leer la historia de PATTY"
+          >
+            
+            <span
+              class="card-bg"
+              aria-hidden="true"
+              style="background-image: url('assets/img/10-patty.webp');"
+            ></span>
+            <span class="card-overlay" aria-hidden="true"></span>
+            <span class="card-info">
+              <span class="card-number">10</span>
+              <span class="card-name">PATTY</span>
+              <span class="card-action">LEER HISTORIA <span aria-hidden="true">↗</span></span>
+              <span class="card-line" aria-hidden="true"></span>
+            </span>
+          
+          </a>
+        </article>
+        <article class="col-12 col-md-6 col-lg-4">
+          <a
+            class="story-card d-block text-decoration-none"
+            href="#historia-11"
+            data-story="10"
+            aria-label="Leer la historia de BARBARA"
+          >
+            
+            <span
+              class="card-bg"
+              aria-hidden="true"
+              style="background-image: url('assets/img/11-barbara.webp');"
+            ></span>
+            <span class="card-overlay" aria-hidden="true"></span>
+            <span class="card-info">
+              <span class="card-number">11</span>
+              <span class="card-name">BARBARA</span>
+              <span class="card-action">LEER HISTORIA <span aria-hidden="true">↗</span></span>
+              <span class="card-line" aria-hidden="true"></span>
+            </span>
+          
+          </a>
+        </article>
+        <article class="col-12 col-md-6 col-lg-4">
+          <a
+            class="story-card d-block text-decoration-none"
+            href="#historia-12"
+            data-story="11"
+            aria-label="Leer la historia de NATALIA"
+          >
+            
+            <span
+              class="card-bg"
+              aria-hidden="true"
+              style="background-image: url('assets/img/03-karla.webp');"
+            ></span>
+            <span class="card-overlay" aria-hidden="true"></span>
+            <span class="card-info">
+              <span class="card-number">12</span>
+              <span class="card-name">NATALIA</span>
+              <span class="card-action">LEER HISTORIA <span aria-hidden="true">↗</span></span>
+              <span class="card-line" aria-hidden="true"></span>
+            </span>
+          
+          </a>
+        </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container-xxl px-3 px-md-4 px-xl-5">
+      <div class="row gy-4 align-items-start">
+        <div class="col-12 col-lg-3">
+          <div class="footer-brand">CARNE LATENTE</div>
+          <div class="footer-sub">Mireliz</div>
+        </div>
+        <nav class="col-12 col-lg-7 d-flex flex-wrap gap-3 gap-lg-4" aria-label="Navegación del pie de página">
+          <a class="text-secondary text-decoration-none small" href="#">INICIO</a>
+          <a class="text-secondary text-decoration-none small" href="#">TERRITORIO</a>
+          <a class="text-secondary text-decoration-none small" href="#">CAMAL</a>
+          <a class="text-secondary text-decoration-none small" href="#">ENTRAÑAS</a>
+          <a class="text-secondary text-decoration-none small" href="#">CUERPO</a>
+          <a class="text-secondary text-decoration-none small" href="#">MIRADA CARNAL</a>
+          <a class="text-secondary text-decoration-none small" href="#">DESDE EL ÚTERO</a>
+          <a class="text-secondary text-decoration-none small" href="#">TOUR VIRTUAL</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap Modal -->
+  <div
+    class="modal fade"
+    id="storyModal"
+    tabindex="-1"
+    aria-labelledby="storyModalTitle"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content story-modal-content">
+
+        <div class="modal-header border-0">
+          <div class="story-modal-meta" id="dialogMeta">01 / 12</div>
+          <button
+            type="button"
+            class="btn-close btn-close-white"
+            data-bs-dismiss="modal"
+            aria-label="Cerrar"
+          ></button>
+        </div>
+
+        <div class="modal-body">
+          <h2 class="story-modal-title" id="storyModalTitle"></h2>
+
+          <p class="story-modal-quote" id="dialogQuote"></p>
+
+          <div class="story-modal-text" id="dialogStory"></div>
+        </div>
+
+        <div class="modal-footer border-0 justify-content-between">
+          <button
+            type="button"
+            class="btn story-modal-nav"
+            id="previousStory"
+            aria-label="Historia anterior"
+          >
+            ← ANTERIOR
+          </button>
+
+          <span class="story-modal-index" id="dialogIndex">01 / 12</span>
+
+          <button
+            type="button"
+            class="btn story-modal-nav"
+            id="nextStory"
+            aria-label="Historia siguiente"
+          >
+            SIGUIENTE →
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const stories = [('SONDRA', '“Tenía 14 años, eran las 4 de la tarde…”', 'Siempre supe que algo estaba mal, pero no tenía palabras para entenderlo. Durante mucho tiempo guardé silencio. Hoy hablo por mí y por quienes siguen atrapadas en la misma historia.'), ('JENNIFER', '“Tuve que aprender a sobrevivir mientras intentaba construir una vida.”', 'Migrar significó empezar de nuevo, trabajar, estudiar y aprender a moverme en lugares donde muchas veces mi voz quedó en segundo plano. Esta historia habla de límites, supervivencia y autonomía.'), ('KARLA', '“Llegó un momento en que ya no sabía dónde terminaba yo.”', 'El control puede esconderse detrás de una pantalla, de una relación o de una promesa. Poco a poco aprendí a reconocer aquello que me aislaba y a volver a escuchar mi propia voz.'), ('MISHA', '“Había aprendido a callar antes de aprender a defenderme.”', 'Hay experiencias que se quedan en el cuerpo incluso cuando nadie las nombra. Contarlas es una forma de dejar de cargarlas a solas.'), ('ANIKA', '“Mi historia no empezó cuando alguien decidió contarla.”', 'Durante años otras personas hablaron por mí. Recuperar mi propia versión fue recuperar una parte de mí.'), ('BETTY', '“Aprendí que sobrevivir no significa olvidar.”', 'Hay recuerdos que cambian de forma con el tiempo, pero siguen formando parte de nuestra historia. Hablarlos permite mirarlos desde otro lugar.'), ('ZULEIKA', '“Mi cuerpo recuerda cosas que mi memoria intenta esconder.”', 'Las marcas no siempre son visibles. Algunas aparecen en la forma de mirar, de confiar o de ocupar un espacio. Esta historia habla de reconstruirse sin negar lo vivido.'), ('MARY PILY', '“Durante mucho tiempo pensé que era culpa mía.”', 'Cuando una experiencia ocurre demasiado pronto puede cambiar la manera en que una persona entiende el mundo y su propio cuerpo. Nombrar lo ocurrido permite devolver la responsabilidad a quien corresponde.'), ('ANA', '“Quería salir, pero no encontraba la puerta.”', 'Hay decisiones que parecen libres desde afuera y que, por dentro, están atravesadas por necesidad, miedo y supervivencia.'), ('PATTY', '“Después de aquella noche, muchas cosas dejaron de tener sentido.”', 'Hay momentos que dejan preguntas sin respuesta y una sensación persistente de no haber tenido control. Contar lo vivido también puede ser una forma de reconstruir la propia narrativa.'), ('BARBARA', '“Me quitaron la posibilidad de elegir demasiado pronto.”', 'La infancia debería ser un territorio de protección. Cuando deja de serlo, las consecuencias pueden acompañar durante años. Esta historia habla de pérdida, supervivencia y reconstrucción.'), ('NATALIA', '“Pensé que para conservar mi trabajo tenía que soportarlo.”', 'El poder también aparece en espacios cotidianos: una oficina, una reunión, una conversación. Esta historia habla de límites vulnerados y de recuperar la propia voz.')];
+
+    const cards = document.querySelectorAll("a.story-card[data-story]");
+    const storyModalElement = document.getElementById("storyModal");
+    const storyModal = bootstrap.Modal.getOrCreateInstance(storyModalElement);
+
+    const dialogMeta = document.getElementById("dialogMeta");
+    const dialogTitle = document.getElementById("storyModalTitle");
+    const dialogQuote = document.getElementById("dialogQuote");
+    const dialogStory = document.getElementById("dialogStory");
+    const dialogIndex = document.getElementById("dialogIndex");
+
+    let currentStory = 0;
+
+    function renderStory(index) {
+      currentStory = (index + stories.length) % stories.length;
+
+      const [name, quote, text] = stories[currentStory];
+      const number = String(currentStory + 1).padStart(2, "0");
+
+      dialogMeta.textContent = `${number} / ${stories.length}`;
+      dialogTitle.textContent = name;
+      dialogQuote.textContent = quote;
+      dialogStory.innerHTML = `<p>${text}</p>`;
+      dialogIndex.textContent = `${number} / ${stories.length}`;
+    }
+
+    function openStory(index) {
+      renderStory(index);
+      storyModal.show();
+    }
+
+    cards.forEach((card) => {
+      card.addEventListener("click", (event) => {
+        event.preventDefault();
+        openStory(Number(card.dataset.story));
+      });
+
+      card.addEventListener("mousemove", (event) => {
+        const rect = card.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width - 0.5;
+        const y = (event.clientY - rect.top) / rect.height - 0.5;
+
+        card.style.transform =
+          `perspective(900px) rotateX(${-y * 5}deg) rotateY(${x * 7}deg) scale(1.05)`;
+
+        card.querySelector(".card-bg").style.transform =
+          `translate(${x * 10}px, ${y * 10}px) scale(1.06)`;
+      });
+
+      card.addEventListener("mouseleave", () => {
+        card.style.transform = "";
+        card.querySelector(".card-bg").style.transform = "";
+      });
+    });
+
+    document.getElementById("previousStory").addEventListener("click", () => {
+      renderStory(currentStory - 1);
+    });
+
+    document.getElementById("nextStory").addEventListener("click", () => {
+      renderStory(currentStory + 1);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (!storyModalElement.classList.contains("show")) return;
+
+      if (event.key === "ArrowLeft") {
+        renderStory(currentStory - 1);
+      }
+
+      if (event.key === "ArrowRight") {
+        renderStory(currentStory + 1);
+      }
+    });
+  </script>
+</body>
+</html>
