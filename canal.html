@@ -823,15 +823,15 @@
     </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap CSS is used for layout; modal behavior is handled locally. -->
 
   <script>
     const stories = [('SONDRA', '“Tenía 14 años, eran las 4 de la tarde…”', 'Siempre supe que algo estaba mal, pero no tenía palabras para entenderlo. Durante mucho tiempo guardé silencio. Hoy hablo por mí y por quienes siguen atrapadas en la misma historia.'), ('JENNIFER', '“Tuve que aprender a sobrevivir mientras intentaba construir una vida.”', 'Migrar significó empezar de nuevo, trabajar, estudiar y aprender a moverme en lugares donde muchas veces mi voz quedó en segundo plano. Esta historia habla de límites, supervivencia y autonomía.'), ('KARLA', '“Llegó un momento en que ya no sabía dónde terminaba yo.”', 'El control puede esconderse detrás de una pantalla, de una relación o de una promesa. Poco a poco aprendí a reconocer aquello que me aislaba y a volver a escuchar mi propia voz.'), ('MISHA', '“Había aprendido a callar antes de aprender a defenderme.”', 'Hay experiencias que se quedan en el cuerpo incluso cuando nadie las nombra. Contarlas es una forma de dejar de cargarlas a solas.'), ('ANIKA', '“Mi historia no empezó cuando alguien decidió contarla.”', 'Durante años otras personas hablaron por mí. Recuperar mi propia versión fue recuperar una parte de mí.'), ('BETTY', '“Aprendí que sobrevivir no significa olvidar.”', 'Hay recuerdos que cambian de forma con el tiempo, pero siguen formando parte de nuestra historia. Hablarlos permite mirarlos desde otro lugar.'), ('ZULEIKA', '“Mi cuerpo recuerda cosas que mi memoria intenta esconder.”', 'Las marcas no siempre son visibles. Algunas aparecen en la forma de mirar, de confiar o de ocupar un espacio. Esta historia habla de reconstruirse sin negar lo vivido.'), ('MARY PILY', '“Durante mucho tiempo pensé que era culpa mía.”', 'Cuando una experiencia ocurre demasiado pronto puede cambiar la manera en que una persona entiende el mundo y su propio cuerpo. Nombrar lo ocurrido permite devolver la responsabilidad a quien corresponde.'), ('ANA', '“Quería salir, pero no encontraba la puerta.”', 'Hay decisiones que parecen libres desde afuera y que, por dentro, están atravesadas por necesidad, miedo y supervivencia.'), ('PATTY', '“Después de aquella noche, muchas cosas dejaron de tener sentido.”', 'Hay momentos que dejan preguntas sin respuesta y una sensación persistente de no haber tenido control. Contar lo vivido también puede ser una forma de reconstruir la propia narrativa.'), ('BARBARA', '“Me quitaron la posibilidad de elegir demasiado pronto.”', 'La infancia debería ser un territorio de protección. Cuando deja de serlo, las consecuencias pueden acompañar durante años. Esta historia habla de pérdida, supervivencia y reconstrucción.'), ('NATALIA', '“Pensé que para conservar mi trabajo tenía que soportarlo.”', 'El poder también aparece en espacios cotidianos: una oficina, una reunión, una conversación. Esta historia habla de límites vulnerados y de recuperar la propia voz.')];
 
     const cards = document.querySelectorAll("a.story-card[data-story]");
-    const storyModalElement = document.getElementById("storyModal");
-    const storyModal = bootstrap.Modal.getOrCreateInstance(storyModalElement);
-
+    const modal = document.getElementById("storyModal");
+    const modalContent = modal.querySelector(".story-modal-content");
+    const closeButton = modal.querySelector(".btn-close");
     const dialogMeta = document.getElementById("dialogMeta");
     const dialogTitle = document.getElementById("storyModalTitle");
     const dialogQuote = document.getElementById("dialogQuote");
@@ -839,23 +839,44 @@
     const dialogIndex = document.getElementById("dialogIndex");
 
     let currentStory = 0;
+    let backdrop = null;
 
     function renderStory(index) {
       currentStory = (index + stories.length) % stories.length;
-
       const [name, quote, text] = stories[currentStory];
       const number = String(currentStory + 1).padStart(2, "0");
-
-      dialogMeta.textContent = `${number} / ${stories.length}`;
+      dialogMeta.textContent = number + " / " + stories.length;
       dialogTitle.textContent = name;
       dialogQuote.textContent = quote;
-      dialogStory.innerHTML = `<p>${text}</p>`;
-      dialogIndex.textContent = `${number} / ${stories.length}`;
+      dialogStory.innerHTML = "<p>" + text + "</p>";
+      dialogIndex.textContent = number + " / " + stories.length;
     }
 
     function openStory(index) {
       renderStory(index);
-      storyModal.show();
+      modal.classList.add("show");
+      modal.style.display = "block";
+      modal.removeAttribute("aria-hidden");
+      modal.setAttribute("aria-modal", "true");
+      document.body.classList.add("modal-open");
+      document.body.style.overflow = "hidden";
+      backdrop = document.createElement("div");
+      backdrop.className = "modal-backdrop fade show";
+      backdrop.addEventListener("click", closeStory);
+      document.body.appendChild(backdrop);
+    }
+
+    function closeStory() {
+      modal.classList.remove("show");
+      modal.style.display = "none";
+      modal.setAttribute("aria-hidden", "true");
+      modal.removeAttribute("aria-modal");
+      document.body.classList.remove("modal-open");
+      document.body.style.overflow = "";
+      if (backdrop) {
+        backdrop.remove();
+        backdrop = null;
+      }
     }
 
     cards.forEach((card) => {
@@ -868,12 +889,8 @@
         const rect = card.getBoundingClientRect();
         const x = (event.clientX - rect.left) / rect.width - 0.5;
         const y = (event.clientY - rect.top) / rect.height - 0.5;
-
-        card.style.transform =
-          `perspective(900px) rotateX(${-y * 5}deg) rotateY(${x * 7}deg) scale(1.05)`;
-
-        card.querySelector(".card-bg").style.transform =
-          `translate(${x * 10}px, ${y * 10}px) scale(1.06)`;
+        card.style.transform = "perspective(900px) rotateX(" + (-y * 5) + "deg) rotateY(" + (x * 7) + "deg) scale(1.05)";
+        card.querySelector(".card-bg").style.transform = "translate(" + (x * 10) + "px, " + (y * 10) + "px) scale(1.06)";
       });
 
       card.addEventListener("mouseleave", () => {
@@ -882,25 +899,19 @@
       });
     });
 
-    document.getElementById("previousStory").addEventListener("click", () => {
-      renderStory(currentStory - 1);
-    });
+    closeButton.addEventListener("click", closeStory);
+    document.getElementById("previousStory").addEventListener("click", () => renderStory(currentStory - 1));
+    document.getElementById("nextStory").addEventListener("click", () => renderStory(currentStory + 1));
 
-    document.getElementById("nextStory").addEventListener("click", () => {
-      renderStory(currentStory + 1);
-    });
+    modalContent.addEventListener("click", (event) => event.stopPropagation());
+    modal.addEventListener("click", closeStory);
 
     document.addEventListener("keydown", (event) => {
-      if (!storyModalElement.classList.contains("show")) return;
-
-      if (event.key === "ArrowLeft") {
-        renderStory(currentStory - 1);
-      }
-
-      if (event.key === "ArrowRight") {
-        renderStory(currentStory + 1);
-      }
+      if (!modal.classList.contains("show")) return;
+      if (event.key === "Escape") closeStory();
+      if (event.key === "ArrowLeft") renderStory(currentStory - 1);
+      if (event.key === "ArrowRight") renderStory(currentStory + 1);
     });
-  </script>
+    </script>
 </body>
 </html>
