@@ -15,7 +15,7 @@ header{position:fixed;z-index:90;left:0;right:0;top:0;height:82px;padding:18px 4
 .tour{height:1450vh;position:relative}.sticky{height:100vh;position:sticky;top:0;overflow:hidden;background:#050505}.scene{position:absolute;inset:0;overflow:hidden}.three-stage{position:absolute;inset:0}.three-stage canvas{display:block;width:100%;height:100%}.museum-ui{position:absolute;left:4vw;right:4vw;top:105px;z-index:4;display:flex;justify-content:space-between;font-size:9px;letter-spacing:.25em;color:#a9a39a;pointer-events:none}.museum-arrows{position:absolute;right:4vw;top:50%;z-index:10;display:flex;gap:8px}.museum-arrows button{width:46px;height:46px;border:1px solid #4a443e;background:rgba(8,8,8,.75);color:#ddd;cursor:pointer}.museum-tooltip{position:absolute;z-index:9;left:calc(50% + 230px);top:50%;bottom:auto;width:min(420px,38vw);padding:20px 22px;opacity:0;transform:translateY(-50%) translateX(20px);pointer-events:none;background:rgba(7,7,7,.88);border-left:2px solid var(--red);backdrop-filter:blur(12px);transition:opacity .35s,transform .35s}.museum-tooltip.visible{opacity:1;transform:translateY(-50%) translateX(0)}.museum-tooltip .label{font-size:9px;color:var(--red);letter-spacing:.22em}.museum-tooltip h3{font:400 30px/1 Fraunces;margin:9px 0 10px}.museum-tooltip p{font-size:12px;line-height:1.65;color:#b8b1a7;margin:0}.shade{position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(90deg,rgba(0,0,0,.56),rgba(0,0,0,.02) 58%,rgba(0,0,0,.5)),linear-gradient(0deg,rgba(0,0,0,.56),transparent 35%,rgba(0,0,0,.35))}.grain{position:absolute;inset:0;z-index:3;opacity:.09;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");mix-blend-mode:screen}.ui{display:none}.hotspots,.panel,.title,.top,.bg,.arrows,.dots{display:none}
 
 @media(max-width:800px){header{height:68px;padding:15px 5vw}.brand{font-size:20px}.nav{display:none}.intro h1{font-size:18vw}.intro p{margin-left:4vw}.ui{padding:90px 6vw 25px}.title{left:6vw;right:6vw;bottom:8vh}.title h2{font-size:18vw}.title p{font-size:11px}.arrows{right:6vw}.panel{left:6vw;right:6vw;width:auto;bottom:5vh}}
-.museum-stage{perspective:1400px;background:#090807 url('assets/tour/museum-wall.png?v=20261003') center/cover no-repeat;isolation:isolate}.museum-world{position:absolute;inset:-8%;width:10800px;height:116%;transform-style:preserve-3d;will-change:transform}.museum-wall-strip{position:absolute;left:0;top:8%;width:10800px;height:67%;background:linear-gradient(180deg,rgba(10,7,6,.28),rgba(5,4,3,.7)),url('assets/tour/museum-wall.png?v=20261003') center/1774px 887px repeat-x;box-shadow:inset 0 -90px 120px #050505,inset 0 30px 70px #050505;transform:translateZ(-160px)}.museum-floor{position:absolute;left:0;top:72%;width:10800px;height:35%;background:linear-gradient(180deg,#1a1412,#080706 65%,#020202);transform:perspective(700px) rotateX(58deg);transform-origin:top center}.museum-ceiling{position:absolute;left:0;top:-10%;width:10800px;height:20%;background:linear-gradient(#15100e,#080706);transform:perspective(900px) rotateX(-48deg);transform-origin:bottom center}.museum-art-track{position:absolute;left:0;top:12%;width:10800px;height:65%;transform-style:preserve-3d}.museum-art{position:absolute;left:0;top:0;width:440px;height:570px;margin:0;transform:translate3d(var(--x),0,calc(var(--depth) * -1)) rotateY(var(--tilt)) scale(var(--scale));transform-origin:center;opacity:var(--opacity);filter:brightness(.78);transition:opacity .2s,filter .2s}.museum-art.active{filter:brightness(1.12);z-index:5}.museum-art .frame{position:absolute;inset:0;padding:18px;background:linear-gradient(145deg,#3b3028,#17120f 50%,#6e5846);border:2px solid #8b725d;box-shadow:0 30px 70px rgba(0,0,0,.75),inset 0 0 0 5px #100d0b}.museum-art img{display:block;width:100%;height:100%;object-fit:cover;border:5px solid #0b0908;background:#050505}.museum-stage:after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(90deg,rgba(0,0,0,.65),transparent 32%,transparent 68%,rgba(0,0,0,.65)),linear-gradient(0deg,rgba(0,0,0,.5),transparent 38%,rgba(0,0,0,.32))}@media(max-width:800px){.museum-ui{top:88px;left:5vw;right:5vw;font-size:8px;letter-spacing:.16em}.museum-arrows{right:5vw;top:auto;bottom:31vh}.museum-arrows button{width:42px;height:42px}.museum-tooltip{left:5vw;right:5vw;top:auto;bottom:4.5vh;width:auto;max-height:22vh;padding:14px 16px;transform:translateY(16px)}.museum-tooltip.visible{transform:translateY(0)}.museum-tooltip .label{font-size:8px}.museum-tooltip h3{font-size:26px;margin:6px 0 7px}.museum-tooltip p{font-size:11px;line-height:1.45}.museum-wall-strip{height:62%;top:10%;background-size:1000px 500px}.museum-art{width:250px;height:335px;top:11%}.museum-art .frame{padding:10px;border-width:1px}.museum-art img{border-width:4px}}.end{min-height:100vh;position:relative;display:grid;place-items:center;overflow:hidden;padding:14vh 8vw;background:radial-gradient(circle at 50% 48%,rgba(167,25,37,.18),transparent 30%),linear-gradient(180deg,#050505 0%,#0b0808 55%,#030303 100%);border-top:1px solid rgba(255,255,255,.08)}.end:before{content:"";position:absolute;inset:0;opacity:.16;pointer-events:none;background:repeating-linear-gradient(0deg,transparent 0,transparent 3px,rgba(255,255,255,.025) 4px),radial-gradient(circle at center,transparent 35%,rgba(0,0,0,.85) 100%)}.end>div{position:relative;z-index:1;max-width:1100px;width:100%;text-align:center}.end .num{font-size:9px;letter-spacing:.34em;color:var(--red);margin-bottom:30px}.end h2{margin:0;font:400 clamp(58px,11vw,170px)/.82 Fraunces,serif;letter-spacing:-.06em;color:var(--paper);text-transform:uppercase}.end p{max-width:560px;margin:38px auto 0;color:#aaa39a;font-size:14px;line-height:1.8;letter-spacing:.02em}@media(max-width:800px){.end{min-height:85vh;padding:12vh 6vw}.end h2{font-size:18vw}.end p{font-size:12px;margin-top:28px}}</style>
+.museum-stage{perspective:1400px;background:#090807 url('assets/tour/museum-wall.png?v=20261003') center/cover no-repeat;isolation:isolate}.museum-world{position:absolute;inset:-8%;width:10800px;height:116%;transform-style:preserve-3d;will-change:transform}.museum-wall-strip{position:absolute;left:0;top:8%;width:10800px;height:67%;background:linear-gradient(180deg,rgba(10,7,6,.28),rgba(5,4,3,.7)),url('assets/tour/museum-wall.png?v=20261003') center/1774px 887px repeat-x;box-shadow:inset 0 -90px 120px #050505,inset 0 30px 70px #050505;transform:translateZ(-160px)}.museum-floor{position:absolute;left:0;top:72%;width:10800px;height:35%;background:linear-gradient(180deg,#1a1412,#080706 65%,#020202);transform:perspective(700px) rotateX(58deg);transform-origin:top center}.museum-ceiling{position:absolute;left:0;top:-10%;width:10800px;height:20%;background:linear-gradient(#15100e,#080706);transform:perspective(900px) rotateX(-48deg);transform-origin:bottom center}.museum-art-track{position:absolute;left:0;top:8%;width:10800px;height:69%;transform-style:preserve-3d}.museum-art{position:absolute;left:0;top:0;width:440px;height:570px;margin:0;transform:translate3d(var(--x),0,calc(var(--depth) * -1)) rotateY(var(--tilt)) scale(var(--scale));transform-origin:center;opacity:var(--opacity);filter:brightness(.78);transition:opacity .2s,filter .2s}.museum-art.active{filter:brightness(1.12);z-index:5}.museum-art .frame{position:absolute;inset:0;padding:18px;background:linear-gradient(145deg,#3b3028,#17120f 50%,#6e5846);border:2px solid #8b725d;box-shadow:0 30px 70px rgba(0,0,0,.75),inset 0 0 0 5px #100d0b}.museum-art img{display:block;width:100%;height:100%;object-fit:cover;border:5px solid #0b0908;background:#050505}.museum-stage:after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(90deg,rgba(0,0,0,.65),transparent 32%,transparent 68%,rgba(0,0,0,.65)),linear-gradient(0deg,rgba(0,0,0,.5),transparent 38%,rgba(0,0,0,.32))}@media(max-width:800px){.museum-ui{top:88px;left:5vw;right:5vw;font-size:8px;letter-spacing:.16em}.museum-arrows{right:5vw;top:58%;bottom:auto}.museum-arrows button{width:42px;height:42px}.museum-tooltip{left:5vw;right:5vw;top:70%;bottom:auto;width:auto;max-height:20vh;padding:13px 15px;transform:translateY(16px)}.museum-tooltip.visible{transform:translateY(0)}.museum-tooltip .label{font-size:8px}.museum-tooltip h3{font-size:24px;margin:5px 0 6px}.museum-tooltip p{font-size:11px;line-height:1.45}.museum-wall-strip{height:62%;top:10%;background-size:1000px 500px}.museum-art{width:230px;height:308px;top:0}.museum-art .frame{padding:8px;border-width:1px}.museum-art img{border-width:4px}}.end{min-height:100vh;position:relative;display:grid;place-items:center;overflow:hidden;padding:14vh 8vw;background:radial-gradient(circle at 50% 48%,rgba(167,25,37,.18),transparent 30%),linear-gradient(180deg,#050505 0%,#0b0808 55%,#030303 100%);border-top:1px solid rgba(255,255,255,.08)}.end:before{content:"";position:absolute;inset:0;opacity:.16;pointer-events:none;background:repeating-linear-gradient(0deg,transparent 0,transparent 3px,rgba(255,255,255,.025) 4px),radial-gradient(circle at center,transparent 35%,rgba(0,0,0,.85) 100%)}.end>div{position:relative;z-index:1;max-width:1100px;width:100%;text-align:center}.end .num{font-size:9px;letter-spacing:.34em;color:var(--red);margin-bottom:30px}.end h2{margin:0;font:400 clamp(58px,11vw,170px)/.82 Fraunces,serif;letter-spacing:-.06em;color:var(--paper);text-transform:uppercase}.end p{max-width:560px;margin:38px auto 0;color:#aaa39a;font-size:14px;line-height:1.8;letter-spacing:.02em}@media(max-width:800px){.end{min-height:85vh;padding:12vh 6vw}.end h2{font-size:18vw}.end p{font-size:12px;margin-top:28px}}</style>
 </head>
 <body>
 <div class="progress" id="progress"></div>
@@ -23,7 +23,6 @@ header{position:fixed;z-index:90;left:0;right:0;top:0;height:82px;padding:18px 4
 <section class="intro"><div><div class="k">07 / TOUR VIRTUAL</div><h1>ENTRA<span>EN EL</span>RECORRIDO</h1><p>El scroll se convierte en cámara: avanza, cambia de escala y atraviesa tres salas mientras aparecen fragmentos del recorrido.</p></div><div class="cue">SCROLL PARA ENTRAR</div></section>
 <section class="tour" id="tour"><div class="sticky"><div class="scene"><div class="three-stage" id="threeStage"></div><div class="shade"></div><div class="grain"></div><div class="museum-ui"><span>CARNE LATENTE · MIRELIZ ALBA</span><span id="museumCounter"></span></div><div class="museum-tooltip"><div class="label" id="museumLabel"></div><h3 id="museumTitle"></h3><p id="museumText"></p></div><div class="museum-arrows"><button id="museumPrev">←</button><button id="museumNext">→</button></div></div></div></section>
 <section class="end"><div><div class="num">FIN DEL RECORRIDO</div><h2>¿QUIÉN ERES TÚ?</h2><p>¿Presa? ¿Depredador? Víctima de lo que otros crearon para ti.</p></div></section>
-<script src="https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.min.js"></script>
 <script>
 const images=[
 "https://carnelatente.gallitonegro.com/wp-content/uploads/2025/12/WhatsApp-Image-2025-11-26-at-11.32.10-PM.jpeg",
@@ -71,48 +70,98 @@ layoutCards();
 addEventListener("resize",layoutCards);
 let active=0,lastNearest=-1;
 function setInfo(n){n=Math.max(0,Math.min(11,n));active=n;const room=Math.floor(n/4),art=n%4,item=rooms[room].items[art];counter.textContent=rooms[room].name+" · OBRA 0"+(art+1)+" / 04";label.textContent=rooms[room].name+" · FRAGMENTO 0"+(art+1);title.textContent=item[0]||"SIN TÍTULO";text.textContent=item[1];cards.forEach((c,i)=>c.classList.toggle("active",i===n));}
-function tourTopFor(n){return tour.offsetTop+(tour.offsetHeight-innerHeight)*(n/11);}
-let snapLock=false,snapTimer=null,touchStartY=0,touchStartX=0;
-function go(n){
- n=Math.max(0,Math.min(11,n)); active=n;
- snapLock=true; museumTooltip.classList.remove("visible"); clearTimeout(snapTimer); clearTimeout(snapTimer);
- scrollTo({top:tourTopFor(n),behavior:"smooth"});
- snapTimer=setTimeout(()=>{snapLock=false; setInfo(n); museumTooltip.classList.add("visible");},940);
+function tourTopFor(n){
+ n=Math.max(0,Math.min(11,n));
+ return tour.offsetTop+(tour.offsetHeight-innerHeight)*(n/11);
 }
+let snapLock=false,touchStartY=0,touchStartX=0,targetSnap=null,arrivalRaf=0;
+
+function finishArrival(){
+ if(targetSnap===null)return;
+ const target= tourTopFor(targetSnap);
+ if(Math.abs(window.scrollY-target)<=6){
+   active=targetSnap;
+   setInfo(active);
+   museumTooltip.classList.add("visible");
+   snapLock=false;
+   targetSnap=null;
+   return;
+ }
+ arrivalRaf=requestAnimationFrame(finishArrival);
+}
+
+function go(n){
+ n=Math.max(0,Math.min(11,n));
+ if(snapLock)return;
+ active=n;
+ targetSnap=n;
+ snapLock=true;
+ museumTooltip.classList.remove("visible");
+ cancelAnimationFrame(arrivalRaf);
+ scrollTo({top:tourTopFor(n),behavior:"smooth"});
+ arrivalRaf=requestAnimationFrame(finishArrival);
+}
+
 function goOutside(direction){
- snapLock=true; clearTimeout(snapTimer);
+ if(snapLock)return;
+ snapLock=true;
+ museumTooltip.classList.remove("visible");
+ targetSnap=null;
  const target=direction>0?tour.offsetTop+tour.offsetHeight:Math.max(0,tour.offsetTop-innerHeight);
  scrollTo({top:target,behavior:"smooth"});
- snapTimer=setTimeout(()=>{snapLock=false;},940);
+ const unlock=()=>{snapLock=false;};
+ setTimeout(unlock,700);
 }
-prev.onclick=()=>go(active-1);next.onclick=()=>go(active+1);
-function currentSnap(){
- const rect=tour.getBoundingClientRect(),range=Math.max(1,tour.offsetHeight-innerHeight);
- return Math.max(0,Math.min(11,Math.round(Math.max(0,Math.min(1,-rect.top/range))*11)));
+
+prev.onclick=()=>go(active-1);
+next.onclick=()=>go(active+1);
+
+function inTourViewport(){
+ const rect=tour.getBoundingClientRect();
+ return rect.top<=innerHeight*.55&&rect.bottom>=innerHeight*.45&&window.scrollY>=tour.offsetTop-20;
 }
-/* Scroll = trigger. Each gesture advances exactly one artwork and then settles. */
+
+/* Wheel: one gesture = exactly one artwork. */
 addEventListener("wheel",e=>{
- const rect=tour.getBoundingClientRect(),inside=rect.top<=innerHeight*.55&&rect.bottom>=innerHeight*.45;
- if(!inside||snapLock||Math.abs(e.deltaY)<2)return;
- if(window.scrollY < tour.offsetTop-20)return;
+ if(!inTourViewport()||snapLock||Math.abs(e.deltaY)<8)return;
  e.preventDefault();
- const dir=e.deltaY>0?1:-1,n=currentSnap();
- if(dir>0&&n>=11){goOutside(1);return;}
- if(dir<0&&n<=0){goOutside(-1);return;}
- go(n+dir);
+ const dir=e.deltaY>0?1:-1;
+ if(dir>0&&active>=11){goOutside(1);return;}
+ if(dir<0&&active<=0){goOutside(-1);return;}
+ go(active+dir);
 },{passive:false});
-addEventListener("touchstart",e=>{const t=e.touches[0];touchStartY=t.clientY;touchStartX=t.clientX;},{passive:true});
-addEventListener("touchend",e=>{
- if(snapLock)return;
- const t=e.changedTouches[0],dy=touchStartY-t.clientY,dx=touchStartX-t.clientX;
- if(Math.abs(dy)<45||Math.abs(dy)<Math.abs(dx))return;
- const rect=tour.getBoundingClientRect(),inside=rect.top<=innerHeight*.55&&rect.bottom>=innerHeight*.45;
- if(!inside)return;
- const n=currentSnap(),dir=dy>0?1:-1;
- if(dir>0&&n>=11)goOutside(1);else if(dir<0&&n<=0)goOutside(-1);else go(n+dir);
+
+/* Touch: stop native inertial scrolling inside the tour, then move exactly one artwork. */
+addEventListener("touchstart",e=>{
+ if(!inTourViewport()||snapLock)return;
+ const t=e.touches[0];
+ touchStartY=t.clientY;
+ touchStartX=t.clientX;
 },{passive:true});
+
+addEventListener("touchmove",e=>{
+ if(!inTourViewport()||snapLock)return;
+ const t=e.touches[0];
+ const dy=touchStartY-t.clientY;
+ const dx=touchStartX-t.clientX;
+ if(Math.abs(dy)>8&&Math.abs(dy)>Math.abs(dx))e.preventDefault();
+},{passive:false});
+
+addEventListener("touchend",e=>{
+ if(snapLock||!inTourViewport())return;
+ const t=e.changedTouches[0];
+ const dy=touchStartY-t.clientY;
+ const dx=touchStartX-t.clientX;
+ if(Math.abs(dy)<45||Math.abs(dy)<Math.abs(dx))return;
+
+ const dir=dy>0?1:-1;
+ if(dir>0&&active>=11){goOutside(1);return;}
+ if(dir<0&&active<=0){goOutside(-1);return;}
+ go(active+dir);
+},{passive:true});
+
 function tick(){
- const rect=tour.getBoundingClientRect(),range=Math.max(1,tour.offsetHeight-innerHeight),p=Math.max(0,Math.min(1,-rect.top/range)),raw=p*11,nearest=Math.max(0,Math.min(11,Math.round(raw))),travel=raw*950,roomPhase=raw%4,turn=Math.max(0,Math.sin((roomPhase-3)*Math.PI/2));
+ const rect=tour.getBoundingClientRect(),range=Math.max(1,tour.offsetHeight-innerHeight),p=Math.max(0,Math.min(1,-rect.top/range)),raw=p*11,nearest=Math.max(0,Math.min(11,Math.round(raw))),spacing=innerWidth<=800?700:1050,travel=raw*spacing,roomPhase=raw%4,turn=Math.max(0,Math.sin((roomPhase-3)*Math.PI/2));
  world.style.transform="translate3d("+(-travel)+"px,"+(Math.sin(raw*Math.PI)*8)+"px,0) rotateY("+turn*2.2+"deg)";
  cards.forEach((card,i)=>{const d=i-raw,near=Math.abs(d);card.style.setProperty("--depth",Math.min(180,near*45)+"px");card.style.setProperty("--tilt",Math.max(-6,Math.min(6,-d*1.15))+"deg");card.style.setProperty("--scale",(1+Math.max(0,.08-near*.022)).toFixed(3));card.style.setProperty("--opacity",near>2.7?".22":"1");});
  if(nearest!==lastNearest&&!snapLock){setInfo(nearest);lastNearest=nearest}
