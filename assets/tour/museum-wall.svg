@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+<defs>
+ <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#3a1715"/><stop offset=".55" stop-color="#24100f"/><stop offset="1" stop-color="#100b0a"/></linearGradient>
+ <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#211817"/><stop offset="1" stop-color="#050505"/></linearGradient>
+ <radialGradient id="light"><stop stop-color="#d38b58" stop-opacity=".72"/><stop offset=".45" stop-color="#8c3c25" stop-opacity=".25"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
+ <filter id="noise"><feTurbulence baseFrequency=".65" numOctaves="4" stitchTiles="stitch"/><feColorMatrix values=".5 0 0 0 0 .3 0 0 0 0 .2 0 0 0 0 .12 0 0 .22 0"/></filter>
+</defs>
+<rect width="1600" height="900" fill="#080706"/>
+<rect x="120" y="65" width="1360" height="610" rx="3" fill="url(#wall)"/>
+<rect x="120" y="65" width="1360" height="610" fill="#000" opacity=".2" filter="url(#noise)"/>
+<g opacity=".9">
+ <ellipse cx="360" cy="175" rx="210" ry="190" fill="url(#light)"/>
+ <ellipse cx="650" cy="175" rx="210" ry="190" fill="url(#light)"/>
+ <ellipse cx="950" cy="175" rx="210" ry="190" fill="url(#light)"/>
+ <ellipse cx="1240" cy="175" rx="210" ry="190" fill="url(#light)"/>
+</g>
+<g fill="#080706">
+ <rect x="325" y="58" width="12" height="80"/><rect x="615" y="58" width="12" height="80"/>
+ <rect x="905" y="58" width="12" height="80"/><rect x="1195" y="58" width="12" height="80"/>
+</g>
+<g fill="#d6a16e">
+ <path d="M315 138h32l-8 24h-16z"/><path d="M605 138h32l-8 24h-16z"/>
+ <path d="M895 138h32l-8 24h-16z"/><path d="M1185 138h32l-8 24h-16z"/>
+</g>
+<rect x="120" y="648" width="1360" height="27" fill="#080706"/>
+<rect x="120" y="675" width="1360" height="15" fill="#5a3829" opacity=".8"/>
+<polygon points="0,900 1600,900 1480,690 120,690" fill="url(#floor)"/>
+<path d="M120 690H1480" stroke="#b87b51" stroke-width="3" opacity=".5"/>
+<g opacity=".18" stroke="#b37a55">
+ <path d="M100 770H1500"/><path d="M60 840H1540"/>
+ <path d="M350 690L260 900"/><path d="M700 690L650 900"/><path d="M1050 690L1110 900"/><path d="M1400 690L1510 900"/>
+</g>
+<g fill="#050505" opacity=".9"><rect x="55" y="80" width="42" height="600"/><rect x="1503" y="80" width="42" height="600"/></g>
+</svg>
