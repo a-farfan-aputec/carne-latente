@@ -1,0 +1,22 @@
+name: Rasterize museum wall
+on:
+  push:
+    paths:
+      - 'assets/tour/museum-wall.svg'
+      - '.github/workflows/rasterize-wall.yml'
+jobs:
+  rasterize:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Convert SVG to PNG
+        run: convert -background none assets/tour/museum-wall.svg assets/tour/museum-wall.png
+      - name: Commit PNG
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/tour/museum-wall.png
+          git diff --cached --quiet || git commit -m "Add raster museum wall PNG"
+          git push
