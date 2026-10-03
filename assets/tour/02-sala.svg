@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000">
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#060606"/><stop offset=".48" stop-color="#211716"/><stop offset="1" stop-color="#080808"/></linearGradient>
+ <radialGradient id="red"><stop stop-color="#9f1d27" stop-opacity=".68"/><stop offset="1" stop-color="#9f1d27" stop-opacity="0"/></radialGradient>
+ <filter id="noise"><feTurbulence baseFrequency=".8" numOctaves="4" stitchTiles="stitch"/></filter>
+</defs>
+<rect width="1600" height="1000" fill="url(#bg)"/>
+<ellipse cx="510" cy="430" rx="440" ry="390" fill="url(#red)" opacity=".5"/>
+<g fill="none" stroke="#d9cbbb" opacity=".16">
+ <path d="M210 0L80 1000"/><path d="M430 0L300 1000"/><path d="M650 0L520 1000"/>
+ <path d="M920 0L820 1000"/><path d="M1180 0L1110 1000"/>
+</g>
+<path d="M240 100 L700 50 L820 920 L330 980 Z" fill="#171313" stroke="#c8b9a7" stroke-opacity=".16"/>
+<path d="M930 90 C1130 210 1260 170 1460 70 L1420 940 C1240 830 1090 850 920 940Z" fill="#321619" opacity=".58"/>
+<path d="M1030 150 C1160 240 1280 230 1380 170 L1360 850 C1230 790 1140 810 1020 870Z" fill="#8b242b" opacity=".18"/>
+<rect width="1600" height="1000" filter="url(#noise)" opacity=".075"/>
+</svg>
