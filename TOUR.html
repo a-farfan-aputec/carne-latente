@@ -15,7 +15,7 @@ header{position:fixed;z-index:90;left:0;right:0;top:0;height:82px;padding:18px 4
 .tour{height:1450vh;position:relative}.sticky{height:100vh;position:sticky;top:0;overflow:hidden;background:#050505}.scene{position:absolute;inset:0;overflow:hidden}.three-stage{position:absolute;inset:0}.three-stage canvas{display:block;width:100%;height:100%}.museum-ui{position:absolute;left:4vw;right:4vw;top:105px;z-index:4;display:flex;justify-content:space-between;font-size:9px;letter-spacing:.25em;color:#a9a39a;pointer-events:none}.museum-arrows{position:absolute;right:4vw;top:50%;z-index:10;display:flex;gap:8px}.museum-arrows button{width:46px;height:46px;border:1px solid #4a443e;background:rgba(8,8,8,.75);color:#ddd;cursor:pointer}.museum-tooltip{position:absolute;z-index:9;left:4vw;bottom:7vh;width:min(420px,86vw);padding:20px 22px;background:rgba(7,7,7,.88);border-left:2px solid var(--red);backdrop-filter:blur(12px);transition:opacity .22s,transform .22s}.museum-tooltip .label{font-size:9px;color:var(--red);letter-spacing:.22em}.museum-tooltip h3{font:400 30px/1 Fraunces;margin:9px 0 10px}.museum-tooltip p{font-size:12px;line-height:1.65;color:#b8b1a7;margin:0}.shade{position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(90deg,rgba(0,0,0,.56),rgba(0,0,0,.02) 58%,rgba(0,0,0,.5)),linear-gradient(0deg,rgba(0,0,0,.56),transparent 35%,rgba(0,0,0,.35))}.grain{position:absolute;inset:0;z-index:3;opacity:.09;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");mix-blend-mode:screen}.ui{display:none}.hotspots,.panel,.title,.top,.bg,.arrows,.dots{display:none}
 
 @media(max-width:800px){header{height:68px;padding:15px 5vw}.brand{font-size:20px}.nav{display:none}.intro h1{font-size:18vw}.intro p{margin-left:4vw}.ui{padding:90px 6vw 25px}.title{left:6vw;right:6vw;bottom:8vh}.title h2{font-size:18vw}.title p{font-size:11px}.arrows{right:6vw}.panel{left:6vw;right:6vw;width:auto;bottom:5vh}}
-</style>
+.museum-stage{perspective:1400px;background:#090807 url('assets/tour/museum-wall.png?v=20261003') center/cover no-repeat;isolation:isolate}.museum-world{position:absolute;inset:-8%;width:10800px;height:116%;transform-style:preserve-3d;will-change:transform}.museum-wall-strip{position:absolute;left:0;top:8%;width:10800px;height:67%;background:linear-gradient(180deg,rgba(10,7,6,.28),rgba(5,4,3,.7)),url('assets/tour/museum-wall.png?v=20261003') center/1774px 887px repeat-x;box-shadow:inset 0 -90px 120px #050505,inset 0 30px 70px #050505;transform:translateZ(-160px)}.museum-floor{position:absolute;left:0;top:72%;width:10800px;height:35%;background:linear-gradient(180deg,#1a1412,#080706 65%,#020202);transform:perspective(700px) rotateX(58deg);transform-origin:top center}.museum-ceiling{position:absolute;left:0;top:-10%;width:10800px;height:20%;background:linear-gradient(#15100e,#080706);transform:perspective(900px) rotateX(-48deg);transform-origin:bottom center}.museum-art-track{position:absolute;left:0;top:12%;width:10800px;height:65%;transform-style:preserve-3d}.museum-art{position:absolute;left:0;top:0;width:440px;height:570px;margin:0;transform:translate3d(var(--x),0,calc(var(--depth) * -1)) rotateY(var(--tilt)) scale(var(--scale));transform-origin:center;opacity:var(--opacity);filter:brightness(.78);transition:opacity .2s,filter .2s}.museum-art.active{filter:brightness(1.12);z-index:5}.museum-art .frame{position:absolute;inset:0;padding:18px;background:linear-gradient(145deg,#3b3028,#17120f 50%,#6e5846);border:2px solid #8b725d;box-shadow:0 30px 70px rgba(0,0,0,.75),inset 0 0 0 5px #100d0b}.museum-art img{display:block;width:100%;height:100%;object-fit:cover;border:5px solid #0b0908;background:#050505}.museum-stage:after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(90deg,rgba(0,0,0,.65),transparent 32%,transparent 68%,rgba(0,0,0,.65)),linear-gradient(0deg,rgba(0,0,0,.5),transparent 38%,rgba(0,0,0,.32))}@media(max-width:800px){.museum-wall-strip{height:62%;top:10%;background-size:1000px 500px}.museum-art{width:270px;height:360px;top:8%}.museum-art .frame{padding:11px}}</style>
 </head>
 <body>
 <div class="progress" id="progress"></div>
@@ -59,169 +59,18 @@ const rooms=[
 ["","¿Quién eres tú? ¿Presa? ¿Depredador? Víctima de lo que otros crearon para ti."]
 ]}
 ];
-
-const stage=document.getElementById("threeStage");
-const counter=document.getElementById("museumCounter");
-const label=document.getElementById("museumLabel");
-const title=document.getElementById("museumTitle");
-const text=document.getElementById("museumText");
-const progress=document.getElementById("progress");
-const prev=document.getElementById("museumPrev");
-const next=document.getElementById("museumNext");
-const tour=document.querySelector(".tour");
-
-const scene=new THREE.Scene();
-scene.background=new THREE.Color(0x050505);
-const camera=new THREE.PerspectiveCamera(48,innerWidth/innerHeight,.1,500);
-const renderer=new THREE.WebGLRenderer({antialias:true,alpha:false});
-renderer.setPixelRatio(Math.min(devicePixelRatio,1.8));
-renderer.setSize(innerWidth,innerHeight);
-renderer.outputColorSpace=THREE.SRGBColorSpace;
-renderer.toneMapping=THREE.ACESFilmicToneMapping;
-renderer.toneMappingExposure=.9;
-stage.appendChild(renderer.domElement);
-
-const world=new THREE.Group();
-scene.add(world);
-const ambient=new THREE.AmbientLight(0x665b52,1.15); scene.add(ambient);
-const warm=new THREE.PointLight(0xd9a47d,18,55); warm.position.set(0,8,4); scene.add(warm);
-const redLight=new THREE.PointLight(0x8b1720,10,38); redLight.position.set(18,3,1); scene.add(redLight);
-
-const wallTex=new THREE.TextureLoader().load("assets/tour/museum-wall.png?v=20261003");
-wallTex.colorSpace=THREE.SRGBColorSpace;
-const wallMat=new THREE.MeshStandardMaterial({map:wallTex,roughness:.88,metalness:0});
-const wallGeo=new THREE.PlaneGeometry(30,16);
-const wall= new THREE.Mesh(wallGeo,wallMat); wall.position.set(0,1.8,-7); world.add(wall);
-
-const floorMat=new THREE.MeshStandardMaterial({color:0x11100f,roughness:.58,metalness:.25});
-const floor=new THREE.Mesh(new THREE.PlaneGeometry(120,70),floorMat);
-floor.rotation.x=-Math.PI/2; floor.position.y=-3; world.add(floor);
-
-const ceilingMat=new THREE.MeshStandardMaterial({color:0x171412,roughness:1});
-const ceiling=new THREE.Mesh(new THREE.PlaneGeometry(120,70),ceilingMat);
-ceiling.rotation.x=Math.PI/2; ceiling.position.y=9; world.add(ceiling);
-
-const artworks=[];
-const frameMat=new THREE.MeshStandardMaterial({color:0x28221d,roughness:.42,metalness:.25});
-const trimMat=new THREE.MeshStandardMaterial({color:0x8d7560,roughness:.32,metalness:.48});
-const textureLoader=new THREE.TextureLoader();
-
-function addArtwork(i){
-  const tex=textureLoader.load(images[i]); tex.colorSpace=THREE.SRGBColorSpace;
-  const group=new THREE.Group();
-  const frame=new THREE.Mesh(new THREE.BoxGeometry(4.2,5.5,.22),frameMat);
-  const trim=new THREE.Mesh(new THREE.BoxGeometry(3.92,5.22,.28),trimMat);
-  const picture=new THREE.Mesh(new THREE.PlaneGeometry(3.65,4.95),new THREE.MeshStandardMaterial({map:tex,roughness:.75}));
-  picture.position.z=.18;
-  group.add(frame,trim,picture);
-  group.userData.index=i;
-  world.add(group); artworks.push(group);
-}
-for(let i=0;i<12;i++) addArtwork(i);
-
-// Three rooms: four works on each wall section. The camera physically advances through them.
-const roomOrigins=[0,34,68];
-for(let r=0;r<3;r++){
-  const base=roomOrigins[r];
-  for(let j=0;j<4;j++){
-    const a=artworks[r*4+j];
-    a.position.set(base+j*8.8-13.2,1.9,-5.8);
-    a.rotation.y=0;
-  }
-}
-
-// Door portals between rooms.
-for(const x of [29,63]){
-  const portal=new THREE.Mesh(
-    new THREE.BoxGeometry(4.5,7.8,.8),
-    new THREE.MeshStandardMaterial({color:0x080707,roughness:1})
-  );
-  portal.position.set(x,1,-7); world.add(portal);
-  const glow=new THREE.PointLight(0x6d1a20,8,12); glow.position.set(x,2,-3); world.add(glow);
-}
-
-// Subtle ceiling spotlights along the route.
-for(let i=0;i<12;i++){
-  const l=new THREE.SpotLight(0xffd6b5,5,15,Math.PI/7,.7,1.5);
-  l.position.set(i*6.2-13,8,0);
-  l.target.position.set(i*6.2-13,1.5,-5.5);
-  world.add(l,l.target);
-}
-
-let active=0, targetX=0, targetY=1.6, targetZ=3.8, targetRot=0;
-
-function setInfo(n){
-  n=Math.max(0,Math.min(11,n)); active=n;
-  const room=Math.floor(n/4), art=n%4, item=rooms[room].items[art];
-  counter.textContent=rooms[room].name+" · OBRA 0"+(art+1)+" / 04";
-  label.textContent=rooms[room].name+" · FRAGMENTO 0"+(art+1);
-  title.textContent=item[0]||"SIN TÍTULO";
-  text.textContent=item[1];
-}
-
-function pointFor(n){
-  const r=Math.floor(n/4),j=n%4;
-  const x=roomOrigins[r]+j*8.8-13.2;
-  // Camera approaches each artwork, then turns toward the next wall/room.
-  return {x:x, y:1.65, z:4.5, rot:0};
-}
-function go(n){
-  n=Math.max(0,Math.min(11,n));
-  const q=pointFor(n);
-  const p=(n/11);
-  const top=tour.offsetTop+(tour.offsetHeight-innerHeight)*p;
-  scrollTo({top,behavior:"smooth"});
-  setInfo(n);
-}
-
-prev.onclick=()=>go(active-1);
-next.onclick=()=>go(active+1);
-
-let lastNearest=-1;
-function tick(){
-  const rect=tour.getBoundingClientRect();
-  const range=Math.max(1,tour.offsetHeight-innerHeight);
-  const p=Math.max(0,Math.min(1,-rect.top/range));
-  const raw=p*11;
-  const nearest=Math.max(0,Math.min(11,Math.round(raw)));
-
-  // Continuous camera interpolation: scroll position maps to a physical 3D path.
-  const exactX=raw<4?raw*2.2-13.2:raw<8?roomOrigins[1]+(raw-4)*2.2-13.2:roomOrigins[2]+(raw-8)*2.2-13.2;
-  const roomPhase=raw%4;
-  const turn=Math.max(0,Math.sin((roomPhase-3)*Math.PI/2));
-  targetX=exactX;
-  targetZ=4.8-turn*5.2;
-  targetY=1.7+Math.sin(raw*Math.PI)*.10;
-  targetRot=turn*.42;
-
-  camera.position.x+=(targetX-camera.position.x)*.075;
-  camera.position.y+=(targetY-camera.position.y)*.075;
-  camera.position.z+=(targetZ-camera.position.z)*.075;
-  camera.rotation.y+=(targetRot-camera.rotation.y)*.075;
-
-  // Artwork emphasis and depth parallax are continuous, not stepped.
-  artworks.forEach((a,i)=>{
-    const d=i-raw;
-    const near=Math.abs(d);
-    a.position.y=1.9+Math.sin(d*.7)*.04;
-    a.position.z=-5.8-Math.min(1.5,near*.35);
-    a.scale.setScalar(1+Math.max(0,.16-near*.045));
-    a.rotation.y=Math.max(-.08,Math.min(.08,-d*.018));
-  });
-
-  if(nearest!==lastNearest){setInfo(nearest);lastNearest=nearest}
-  progress.style.width=(p*100)+"%";
-  renderer.render(scene,camera);
-  requestAnimationFrame(tick);
-}
-
-addEventListener("resize",()=>{
-  camera.aspect=innerWidth/innerHeight;
-  camera.updateProjectionMatrix();
-  renderer.setPixelRatio(Math.min(devicePixelRatio,1.8));
-  renderer.setSize(innerWidth,innerHeight);
-});
-setInfo(0);
-requestAnimationFrame(tick);
-</script>
+const stage=document.getElementById("threeStage"),counter=document.getElementById("museumCounter"),label=document.getElementById("museumLabel"),title=document.getElementById("museumTitle"),text=document.getElementById("museumText"),progress=document.getElementById("progress"),prev=document.getElementById("museumPrev"),next=document.getElementById("museumNext"),tour=document.querySelector(".tour");
+stage.className="three-stage museum-stage";
+stage.innerHTML='<div class="museum-world"><div class="museum-wall-strip"></div><div class="museum-floor"></div><div class="museum-ceiling"></div><div class="museum-art-track"></div></div>';
+const world=stage.querySelector(".museum-world"),track=stage.querySelector(".museum-art-track"),cards=[];
+for(let i=0;i<12;i++){const card=document.createElement("figure");card.className="museum-art";card.innerHTML='<div class="frame"><img loading="eager" src="'+images[i]+'"></div>';track.appendChild(card);cards.push(card);}
+const roomCenters=[0,4200,8400];
+cards.forEach((card,i)=>{const room=Math.floor(i/4),j=i%4;card.style.setProperty("--x",(roomCenters[room]+j*1050-1575)+"px");});
+let active=0,lastNearest=-1;
+function setInfo(n){n=Math.max(0,Math.min(11,n));active=n;const room=Math.floor(n/4),art=n%4,item=rooms[room].items[art];counter.textContent=rooms[room].name+" · OBRA 0"+(art+1)+" / 04";label.textContent=rooms[room].name+" · FRAGMENTO 0"+(art+1);title.textContent=item[0]||"SIN TÍTULO";text.textContent=item[1];cards.forEach((c,i)=>c.classList.toggle("active",i===n));}
+function go(n){n=Math.max(0,Math.min(11,n));scrollTo({top:tour.offsetTop+(tour.offsetHeight-innerHeight)*(n/11),behavior:"smooth"});}
+prev.onclick=()=>go(active-1);next.onclick=()=>go(active+1);
+function tick(){const rect=tour.getBoundingClientRect(),range=Math.max(1,tour.offsetHeight-innerHeight),p=Math.max(0,Math.min(1,-rect.top/range)),raw=p*11,nearest=Math.round(raw),travel=raw*950,turn=Math.max(0,Math.sin(((raw%4)-2.5)*Math.PI/2));world.style.transform="translate3d("+(-travel+innerWidth*.5)+"px,"+(Math.sin(raw*Math.PI)*8)+"px,0) rotateY("+turn*2.2+"deg)";cards.forEach((card,i)=>{const d=i-raw,near=Math.abs(d);card.style.setProperty("--depth",Math.min(180,near*45)+"px");card.style.setProperty("--tilt",Math.max(-6,Math.min(6,-d*1.15))+"deg");card.style.setProperty("--scale",(1+Math.max(0,.08-near*.022)).toFixed(3));card.style.setProperty("--opacity",near>2.7?".22":"1");});if(nearest!==lastNearest){setInfo(nearest);lastNearest=nearest}progress.style.width=(p*100)+"%";requestAnimationFrame(tick);}
+setInfo(0);requestAnimationFrame(tick);
+</script>>
 </body></html>
