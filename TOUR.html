@@ -40,7 +40,7 @@ function openPanel(i){const x=rooms[room].items[i];document.getElementById('plab
 document.getElementById('close').onclick=()=>panel.classList.remove('open');
 function jump(i){const usable=tour.offsetHeight-innerHeight;scrollTo({top:tour.offsetTop+usable*((i+.12)/3),behavior:'smooth'})}
 document.getElementById('prev').onclick=()=>jump(Math.max(0,room-1));document.getElementById('next').onclick=()=>jump(Math.min(2,room+1));
-function tick(){const r=tour.getBoundingClientRect(),u=tour.offsetHeight-innerHeight,p=Math.max(0,Math.min(1,-r.top/u)),raw=p*3,idx=Math.min(2,Math.floor(raw)),local=raw-idx;if(idx!==room)render(idx);const ease=t=>t*t*(3-2*t),e=ease(local),x=(-6+12*e),y=(2-4*e),s=1.05+Math.sin(e*Math.PI)*.07;bg.style.transform='translate3d('+x+'%,'+y+'%,0) scale('+s+')';title.style.transform='translate3d(0,'+(18-36*e)+'px,0)';title.style.opacity=.75+.25*Math.sin(e*Math.PI);document.getElementById('progress').style.width=(p*100)+'%';requestAnimationFrame(tick)}
+function tick(){const r=tour.getBoundingClientRect(),u=tour.offsetHeight-innerHeight,p=Math.max(0,Math.min(1,-r.top/u)),raw=p*3,idx=Math.min(2,Math.floor(raw)),local=raw-idx;if(idx!==room)render(idx);const ease=t=>t*t*(3-2*t),e=ease(local),x=(-18+36*e),y=(2-4*e);bg.style.transform='translate3d('+x+'vw,'+y+'vh,0)';title.style.transform='translate3d(0,'+(18-36*e)+'px,0)';title.style.opacity=.75+.25*Math.sin(e*Math.PI);document.getElementById('progress').style.width=(p*100)+'%';requestAnimationFrame(tick)}
 render(0);requestAnimationFrame(tick);
 </script>
 </body></html>
