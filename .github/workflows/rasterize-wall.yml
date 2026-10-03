@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Convert SVG to PNG
-        run: convert -background none assets/tour/museum-wall.svg assets/tour/museum-wall.png
+        run: python -m pip install cairosvg && python -c "import cairosvg; cairosvg.svg2png(url='assets/tour/museum-wall.svg', write_to='assets/tour/museum-wall.png', output_width=2400, output_height=1400)"
       - name: Commit PNG
         run: |
           git config user.name "github-actions[bot]"
